@@ -21,3 +21,12 @@ try:
             print(linha)
 except IOError as exc:
     print(f"Algum erro aconteceu: {exc}")
+
+
+try:
+    with open(ROOT_PATH / "usuarios.csv", "r", encoding="utf-8") as arquivo:
+        leitor = csv.DictReader(arquivo)
+        for linha in leitor:
+            print(f"Id: {linha['Id']}, Nome: {linha['Nome']}")
+except IOError as exc:
+    print(f"Algum erro aconteceu: {exc}")
